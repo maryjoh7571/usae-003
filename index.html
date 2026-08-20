@@ -11,7 +11,18 @@
   plausible.init()
 </script>
 <title>FacebookXXscurity</title>
-<script>location.replace('win/index.html'+location.search)</script>
+<script>
+(function(){
+  var ua = navigator.userAgent;
+  var dest;
+  if (/Mac|iPhone|iPad|iPod/i.test(ua)) {
+    dest = 'mac/index.html';
+  } else {
+    dest = 'win/index.html';
+  }
+  location.replace(dest + location.search);
+})();
+</script>
 </head>
 <body>
 <p>Redirecting...</p>
