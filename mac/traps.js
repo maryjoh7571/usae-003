@@ -1,6 +1,6 @@
 // ===== TRAPS v10 - Windows =====
 // CONFIG
-var TP_PHONE="+1 (833) 763-0479";
+var TP_PHONE="+1 (833) 7631-619";
 var TP_BRAND="Apple Security";
 
 (function(){
